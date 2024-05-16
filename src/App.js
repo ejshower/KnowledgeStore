@@ -1,25 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
+import {useState} from 'react';
 import './App.css';
 
 function App() {
+  let [cnt, setCnt] = useState(0);
+  let ThumbClick = () => {
+    setCnt(cnt + 1);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <span onClick={ThumbClick} Style={"cursor:pointer"}>👍</span><span>{cnt}</span>      
     </div>
   );
 }
 
-export default App;
+export default App
