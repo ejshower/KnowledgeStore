@@ -10,15 +10,21 @@ function App() {
   // };
 
   const [posts, setPosts] = useState([]);
+  const [sound, setSound] = useState('');
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/photos')
          .then(response => setPosts(response.data))
+
+    axios.get('http://localhost:3100/sound/dog')
+         .then(response => setSound(response.data.sound))
   },[]);
 
   return (
     <div>
       {/* <span onClick={ThumbClick} Style={"cursor:pointer"}>👍</span><span>{cnt}</span>     */}
+
+      <label>{sound}</label>
 
       <ul>
         {/*화살표 함수에서 {return} or ({})*/
@@ -30,6 +36,7 @@ function App() {
           ))  
         }
       </ul>  
+
     </div>
   );
 }
